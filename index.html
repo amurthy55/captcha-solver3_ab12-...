@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captcha Solver</title>
+</head>
+<body>
+    <h1>Captcha Solver</h1>
+    <img id="captchaImage" src="" alt="Captcha Image">
+    <p id="captchaText"></p>
+    <script>
+        function parseUrlParams() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('url') || 'data:image/png;base64,iVBORw...';
+        }
+
+        function displayCaptcha() {
+            const captchaUrl = parseUrlParams();
+            document.getElementById('captchaImage').src = captchaUrl;
+            // Simulate captcha solving
+            setTimeout(() => {
+                const solvedText = 'Solved Captcha'; // Placeholder for actual solving logic
+                document.getElementById('captchaText').innerText = solvedText;
+            }, 15000);
+        }
+
+        displayCaptcha();
+    </script>
+</body>
+</html>
